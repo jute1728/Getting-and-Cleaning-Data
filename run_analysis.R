@@ -145,9 +145,10 @@ X_all     <- X_all[,mychosen]
 
 features  <- features[mychosen,]
 
+features$Label=tolower(features$Label)
 features$Label=gsub("\\(\\)",""  , features$Label)
 features$Label=gsub("-"     ,"." , features$Label)
-features$Label=tolower(features$Label)
+features$Label=gsub("bodybody","body" , features$Label)
 
 setnames(X_all, features$Label)
 
